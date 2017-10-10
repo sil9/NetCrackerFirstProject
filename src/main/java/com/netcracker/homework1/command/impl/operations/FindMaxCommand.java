@@ -4,7 +4,7 @@ package com.netcracker.homework1.command.impl.operations;
 import com.netcracker.homework1.command.Command;
 import com.netcracker.homework1.menu.MenuFactory;
 import com.netcracker.homework1.menu.MenuType;
-import com.netcracker.homework1.repository.ArrayOfNumbers;
+import com.netcracker.homework1.memory.ArrayOfNumbers;
 
 public class FindMaxCommand implements Command {
 
@@ -19,6 +19,6 @@ public class FindMaxCommand implements Command {
         }
         System.out.println("Максимальное число : " + max);
         System.out.println("-------");
-        MenuFactory.getInstance().create(MenuType.OPERATIONS).show();
+        MenuFactory.getInstance().create(MenuType.CALCULATE).show();
     }
 }

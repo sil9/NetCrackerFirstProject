@@ -4,7 +4,7 @@ package com.netcracker.homework1.command.impl.operations;
 import com.netcracker.homework1.command.Command;
 import com.netcracker.homework1.menu.MenuFactory;
 import com.netcracker.homework1.menu.MenuType;
-import com.netcracker.homework1.repository.ArrayOfNumbers;
+import com.netcracker.homework1.memory.ArrayOfNumbers;
 
 public class FindSumCommand implements Command {
 
@@ -17,6 +17,6 @@ public class FindSumCommand implements Command {
         }
         System.out.println("Сумма : " + sum);
         System.out.println("-------");
-        MenuFactory.getInstance().create(MenuType.OPERATIONS).show();
+        MenuFactory.getInstance().create(MenuType.CALCULATE).show();
     }
 }
