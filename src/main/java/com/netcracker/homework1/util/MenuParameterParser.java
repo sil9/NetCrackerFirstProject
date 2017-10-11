@@ -1,10 +1,8 @@
 package com.netcracker.homework1.util;
 
-
 import com.netcracker.homework1.command.factory.CommandType;
 import com.netcracker.homework1.menu.Menu;
 import javafx.util.Pair;
-
 import java.util.List;
 
 public class MenuParameterParser {
@@ -15,7 +13,7 @@ public class MenuParameterParser {
             if (menu.isExit() & number == 0) {
                 System.exit(0);
             }
-            if (number == 0 & menu.getPreviousMenu() != null){
+            if (number == 0 & menu.getPreviousMenu() != null) {
                 menu.getPreviousMenu().show();
             }
             return commands.get(number - 1).getValue();

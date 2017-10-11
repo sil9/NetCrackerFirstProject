@@ -1,6 +1,5 @@
 package com.netcracker.homework1.menu;
 
-
 import com.netcracker.homework1.command.factory.CommandType;
 
 public enum MenuType {

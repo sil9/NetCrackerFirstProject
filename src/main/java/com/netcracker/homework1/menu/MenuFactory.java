@@ -1,6 +1,5 @@
 package com.netcracker.homework1.menu;
 
-
 public class MenuFactory {
 
     private static class MenuFactoryHolder {
@@ -11,7 +10,7 @@ public class MenuFactory {
         return MenuFactoryHolder.INSTANCE;
     }
 
-    public Menu create(MenuType menuType){
+    public Menu create(MenuType menuType) {
         return menuType.getCurrentMenu();
     }
 }

@@ -1,6 +1,5 @@
 package com.netcracker.homework1;
 
-
 import com.netcracker.homework1.initialize.InitArray;
 import com.netcracker.homework1.menu.MenuFactory;
 import com.netcracker.homework1.menu.MenuType;

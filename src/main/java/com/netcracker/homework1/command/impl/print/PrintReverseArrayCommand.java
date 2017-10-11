@@ -5,13 +5,12 @@ import com.netcracker.homework1.menu.MenuFactory;
 import com.netcracker.homework1.menu.MenuType;
 import com.netcracker.homework1.memory.ArrayOfNumbers;
 
-
 public class PrintReverseArrayCommand implements Command {
 
     @Override
     public void execute() {
         int[] array = ArrayOfNumbers.getArray();
-        for (int i = array.length - 1; i > 0 ; i--){
+        for (int i = array.length - 1; i > 0; i--) {
             System.out.print(array[i] + ", ");
         }
         System.out.println(array[0]);

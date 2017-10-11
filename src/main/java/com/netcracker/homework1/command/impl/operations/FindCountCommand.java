@@ -5,7 +5,6 @@ import com.netcracker.homework1.menu.MenuFactory;
 import com.netcracker.homework1.menu.MenuType;
 import com.netcracker.homework1.memory.ArrayOfNumbers;
 
-
 public class FindCountCommand implements Command {
 
     @Override

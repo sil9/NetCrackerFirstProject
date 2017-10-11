@@ -1,8 +1,7 @@
 package com.netcracker.homework1.util;
 
-
 public class QuickSort {
-    private int[] array ;
+    private int[] array;
 
     public QuickSort(int[] array) {
         this.array = array;
@@ -10,7 +9,7 @@ public class QuickSort {
 
     public void quickSort() {
         int startIndex = 0;
-        int endIndex = array.length- 1;
+        int endIndex = array.length - 1;
         doSort(startIndex, endIndex);
     }
 

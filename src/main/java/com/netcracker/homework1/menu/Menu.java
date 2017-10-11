@@ -1,12 +1,10 @@
 package com.netcracker.homework1.menu;
 
-
 import com.netcracker.homework1.command.factory.CommandFactory;
 import com.netcracker.homework1.command.factory.CommandType;
 import com.netcracker.homework1.memory.InputValues;
 import com.netcracker.homework1.util.ConsoleReader;
 import javafx.util.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,6 +85,7 @@ public class Menu {
             this.exit = bool;
             return this;
         }
+
         public Builder addCommand(String text, CommandType commandType) {
             Pair<String, CommandType> pair = new Pair<>(text, commandType);
             this.commands.add(pair);

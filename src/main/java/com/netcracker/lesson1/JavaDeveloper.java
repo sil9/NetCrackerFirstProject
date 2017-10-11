@@ -1,5 +1,6 @@
 package com.netcracker.lesson1;
 
+
 public class JavaDeveloper extends Employee implements Developer {
 
     public JavaDeveloper() {

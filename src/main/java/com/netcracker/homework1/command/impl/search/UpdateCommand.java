@@ -6,7 +6,6 @@ import com.netcracker.homework1.menu.MenuType;
 import com.netcracker.homework1.memory.ArrayOfNumbers;
 import com.netcracker.homework1.memory.InputValues;
 
-
 public class UpdateCommand implements Command {
 
     @Override

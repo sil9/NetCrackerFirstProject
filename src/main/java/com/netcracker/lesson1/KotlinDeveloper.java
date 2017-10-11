@@ -1,5 +1,6 @@
 package com.netcracker.lesson1;
 
+
 public class KotlinDeveloper extends Employee implements Developer {
 
     public KotlinDeveloper() {

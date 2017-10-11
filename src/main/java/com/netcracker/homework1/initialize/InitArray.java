@@ -1,6 +1,5 @@
 package com.netcracker.homework1.initialize;
 
-
 import com.netcracker.homework1.memory.ArrayOfNumbers;
 import com.netcracker.homework1.memory.InputValues;
 import com.netcracker.homework1.menu.MenuFactory;
@@ -19,7 +18,7 @@ public class InitArray {
         for (int i = 0; i < count; i++) {
             inputUniqueValue();
         }
-        for (int i = 0 ; i < count; i++) {
+        for (int i = 0; i < count; i++) {
             ArrayOfNumbers.getArray()[i] = InputValues.getList().get(i);
         }
     }
