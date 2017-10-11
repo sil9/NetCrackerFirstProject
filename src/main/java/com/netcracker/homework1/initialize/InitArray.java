@@ -14,22 +14,25 @@ public class InitArray {
     }
 
     private static void initArray() {
+        int count = ArrayOfNumbers.getArray().length;
         System.out.println("Введите уникальные числа...");
-        for (int i = 0; i < ArrayOfNumbers.getArray().length; i++) {
-            MenuFactory.getInstance().create(MenuType.INPUTNUMBER).show();
-            int inputNumber = InputValues.getList().get(InputValues.getList().size() - 1);
-            for (int num : ArrayOfNumbers.getArray()) {
-                if (inputNumber == num) {
-                    System.out.println("Число есть в массиве. Введите другое");
-                    InputValues.getList().remove(InputValues.getList().size() - 1);
-                    i--;
-                    break;
-                }
-            }
+        for (int i = 0; i < count; i++) {
+            inputUniqueValue();
+        }
+        for (int i = 0 ; i < count; i++) {
+            ArrayOfNumbers.getArray()[i] = InputValues.getList().get(i);
+        }
+    }
 
-            TODO:
-            // FIXME: 11.10.2017 тут что-то с нулем
-            ArrayOfNumbers.getArray()[i] = inputNumber;
+    private static void inputUniqueValue() {
+        MenuFactory.getInstance().create(MenuType.INPUTNUMBER).show();
+        int inputNumber = InputValues.getList().get(InputValues.getList().size() - 1);
+        for (int i = 0; i < InputValues.getList().size() - 1; i++) {
+            if (inputNumber == InputValues.getList().get(i)) {
+                System.out.println("Такое число уже есть. Введите другое...");
+                InputValues.getList().remove(InputValues.getList().size() - 1);
+                inputUniqueValue();
+            }
         }
     }
 
