@@ -28,7 +28,7 @@ public class InitArray {
             }
 
             TODO:
-// FIXME: 11.10.2017
+            // FIXME: 11.10.2017 тут что-то с нулем
             ArrayOfNumbers.getArray()[i] = inputNumber;
         }
     }
