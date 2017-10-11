@@ -11,16 +11,19 @@ public class ConsoleReader {
     private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private Integer readableNumber;
     private static final String ERROR = "Выберите из предложенных вариантов";
+    private static final String WRITENUMBER = "Введите целое число...";
 
     public Integer readConsoleLine(Menu menu) {
         try {
             readableNumber = Integer.parseInt(reader.readLine());
-            if (readableNumber < 0 | readableNumber > menu.getCommands().size()){
+            if (menu.isChoice() & (readableNumber < 0 | readableNumber > menu.getCommands().size())) {
                 System.out.println(ERROR);
                 readConsoleLine(menu);
             }
         } catch (IOException | NumberFormatException e) {
-            System.out.println(ERROR);
+            if (menu.isChoice()) {
+                System.out.println(ERROR);
+            } else System.out.println(WRITENUMBER);
             readConsoleLine(menu);
         }
         return readableNumber;
