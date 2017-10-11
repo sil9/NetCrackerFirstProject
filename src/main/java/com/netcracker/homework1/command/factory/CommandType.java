@@ -7,15 +7,13 @@ import com.netcracker.homework1.command.impl.operations.*;
 import com.netcracker.homework1.command.impl.print.PrintArrayCommand;
 import com.netcracker.homework1.command.impl.print.PrintReverseArrayCommand;
 import com.netcracker.homework1.command.impl.print.PrintSortedArrayCommand;
+import com.netcracker.homework1.command.impl.search.CheckNumberCommand;
+import com.netcracker.homework1.command.impl.search.UpdateCommand;
 
 public enum CommandType {
-    FINDMAX, FINDMIN, FINDCOUNT, FINDSUM, FINDAVERAGE, //Вычисления значений
+    FINDMAX, FINDMIN, FINDCOUNT, FINDSUM, FINDAVERAGE, PRINTARRAY, PRINTREVERSEARRAY, PRINTSORTEDARRAY,
 
-    PRINTARRAY, PRINTREVERSEARRAY, PRINTSORTEDARRAY,   //Печать
-
-    OPERATIONS, PRINT,                                 //Стартовое меню
-
-    START;
+    OPERATIONS, PRINT, START, SEARCH, CALCULATE, CHECKNUMBERINARRAY, UPDATENUBERINARRAY, INPUTNUMBERCOMMAND;
 
     public Command getCurrentCommand() {
         switch (this) {
@@ -41,6 +39,16 @@ public enum CommandType {
                 return new PrintCommand();
             case START:
                 return new StartCommand();
+            case SEARCH:
+                return new SearchCommand();
+            case CALCULATE:
+                return new CalculateCommand();
+            case CHECKNUMBERINARRAY:
+                return new CheckNumberCommand();
+            case UPDATENUBERINARRAY:
+                return new UpdateCommand();
+            case INPUTNUMBERCOMMAND:
+                return new InputNumberCommand();
             default:
                 return new FindMaxCommand();
         }
