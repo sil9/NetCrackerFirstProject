@@ -2,7 +2,6 @@ package com.netcracker.lesson2.car;
 
 
 import com.netcracker.lesson2.Testable;
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;

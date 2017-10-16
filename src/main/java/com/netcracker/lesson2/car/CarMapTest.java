@@ -2,10 +2,8 @@ package com.netcracker.lesson2.car;
 
 
 import com.netcracker.lesson2.Testable;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class CarMapTest implements Testable {
 
