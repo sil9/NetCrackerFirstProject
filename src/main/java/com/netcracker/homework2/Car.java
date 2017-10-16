@@ -1,4 +1,4 @@
-package com.netcracker.lesson2.object;
+package com.netcracker.homework2;
 
 
 public class Car {
