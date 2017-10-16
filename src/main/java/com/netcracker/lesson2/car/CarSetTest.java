@@ -1,4 +1,4 @@
-package com.netcracker.homework2;
+package com.netcracker.lesson2.car;
 
 
 import com.netcracker.lesson2.Testable;
