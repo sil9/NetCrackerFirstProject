@@ -22,5 +22,5 @@ public interface MapOperation<K, V> {
 
     boolean findSymbolInAllItems(Map<K, V> map, Character character);
 
-    Map<String, Entity> sorted(Map<K, V> map);
+    Map<K, V> sorted(Map<K, V> map);
 }
