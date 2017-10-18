@@ -1,6 +1,8 @@
 package com.netcracker.homework2;
 
 
+import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -67,11 +69,17 @@ public class EntityMapStreamOperation implements MapOperation<String, Entity> {
 
     @Override
     public boolean findSymbolInAllItems(Map<String, Entity> map, Character character) {
-        return false;
+        return map.entrySet().stream()
+                .allMatch(entry -> entry.getValue().getName().contains(character.toString()));
     }
 
     @Override
     public Map<String, Entity> sorted(Map<String, Entity> map) {
-        return null;
+        Map<String, Entity> result = new LinkedHashMap<>();
+        map.entrySet().stream()
+                .sorted(Comparator.comparing(entry -> entry.getValue().getName()))
+                .sorted(Comparator.comparing(entry -> entry.getValue().getValue()))
+                .forEach(entry -> result.put(entry.getKey(), entry.getValue()));
+        return result;
     }
 }
