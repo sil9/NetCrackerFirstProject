@@ -15,7 +15,7 @@ public class EntityListOperation implements ListOperation<Entity> {
                 maxValue[0] = entity.getValue();
             }
         }
-        list.removeIf(entity -> entity.getValue() == maxValue[0]);
+        deleteByValue(list, maxValue[0]);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class EntityListOperation implements ListOperation<Entity> {
                 minValue[0] = entity.getValue();
             }
         }
-        list.removeIf(entity -> entity.getValue() == minValue[0]);
+        deleteByValue(list, minValue[0]);
     }
 
     @Override
