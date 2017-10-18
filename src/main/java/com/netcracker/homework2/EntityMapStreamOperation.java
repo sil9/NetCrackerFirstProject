@@ -3,6 +3,7 @@ package com.netcracker.homework2;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class EntityMapStreamOperation implements MapOperation<String, Entity> {
 
@@ -38,17 +39,30 @@ public class EntityMapStreamOperation implements MapOperation<String, Entity> {
 
     @Override
     public Entity getThird(Map<String, Entity> map) {
-        return null;
+        return map.entrySet().stream()
+                .skip(2)
+                .findFirst()
+                .orElse(null)
+                .getValue();
+
     }
 
     @Override
     public List<Entity> getTwoFromSecond(Map<String, Entity> map) {
-        return null;
+        return map.entrySet().stream()
+                .skip(1)
+                .limit(2)
+                .map(Map.Entry::getValue)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<Entity> getAllByTemplate(Map<String, Entity> map) {
-        return null;
+        return map.entrySet().stream()
+                .filter(entry -> entry.getValue().getName().length() <= 5)
+                .map(Map.Entry::getValue)
+                .collect(Collectors.toList());
+
     }
 
     @Override
