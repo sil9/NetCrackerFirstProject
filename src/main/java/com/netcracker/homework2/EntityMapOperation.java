@@ -31,7 +31,7 @@ public class EntityMapOperation implements MapOperation<String, Entity> {
 
     @Override
     public void deleteByValue(Map<String, Entity> map, int value) {
-        map.entrySet().removeIf(entry -> entry.getValue().getValue() >= value);
+        map.entrySet().removeIf(entry -> entry.getValue().getValue() == value);
     }
 
     @Override

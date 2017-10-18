@@ -31,7 +31,7 @@ public class EntityListOperation implements ListOperation<Entity> {
 
     @Override
     public void deleteByValue(List<Entity> list, int value) {
-        list.removeIf(entity -> entity.getValue() >= 3);
+        list.removeIf(entity -> entity.getValue() == value);
     }
 
     @Override
