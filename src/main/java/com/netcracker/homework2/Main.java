@@ -79,8 +79,8 @@ public class Main {
 //        print(mapOperation.findSymbolInAllItems(map, '!'));
 //
 //        print("Отсортировать");
-//        mapOperation.sorted(map);
-//        print(map);
+//        Map<String, Entity> sortedMap = mapOperation.sorted(map);
+//        print(sortedMap);
 
     }
 
