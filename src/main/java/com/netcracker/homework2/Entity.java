@@ -48,7 +48,7 @@ public class Entity {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Entity{");
+        final StringBuffer sb = new StringBuffer("{");
         sb.append("name='").append(name).append('\'');
         sb.append(", value=").append(value);
         sb.append('}');
