@@ -85,7 +85,7 @@ public class EntityMapOperation implements MapOperation<String, Entity> {
     @Override
     public boolean findSymbolInAllItems(Map<String, Entity> map, Character character) {
         for (Map.Entry<String, Entity> entry : map.entrySet()) {
-            if (entry.getValue().getName().indexOf(character) == -1) {
+            if (!entry.getValue().getName().contains(character.toString())) {
                 return false;
             }
         }
