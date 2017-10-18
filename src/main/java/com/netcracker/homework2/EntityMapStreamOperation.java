@@ -15,7 +15,7 @@ public class EntityMapStreamOperation implements MapOperation<String, Entity> {
                 .mapToInt(entry -> entry.getValue().getValue())
                 .max()
                 .getAsInt();
-        deleteByValue(map, num);
+        map.entrySet().removeIf(entry -> entry.getValue().getValue() == num);
     }
 
     @Override
@@ -24,12 +24,12 @@ public class EntityMapStreamOperation implements MapOperation<String, Entity> {
                 .mapToInt(entry -> entry.getValue().getValue())
                 .min()
                 .getAsInt();
-        deleteByValue(map, num);
+        map.entrySet().removeIf(entry -> entry.getValue().getValue() == num);
     }
 
     @Override
     public void deleteByValue(Map<String, Entity> map, int value) {
-        map.entrySet().removeIf(entry -> entry.getValue().getValue() == value);
+        map.entrySet().removeIf(entry -> entry.getValue().getValue() > value);
     }
 
     @Override

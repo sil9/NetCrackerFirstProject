@@ -13,7 +13,7 @@ public class EntityListStreamOperation implements ListOperation<Entity> {
                 .mapToInt(Entity::getValue)
                 .max()
                 .getAsInt();
-        deleteByValue(list, num);
+        list.removeIf(entity -> entity.getValue() == num);
     }
 
     @Override
@@ -22,12 +22,12 @@ public class EntityListStreamOperation implements ListOperation<Entity> {
                 .mapToInt(Entity::getValue)
                 .min()
                 .getAsInt();
-        deleteByValue(list, num);
+        list.removeIf(entity -> entity.getValue() == num);
     }
 
     @Override
     public void deleteByValue(List<Entity> list, int value) {
-        list.removeIf(entity -> entity.getValue() == value);
+        list.removeIf(entity -> entity.getValue() > value);
     }
 
     @Override

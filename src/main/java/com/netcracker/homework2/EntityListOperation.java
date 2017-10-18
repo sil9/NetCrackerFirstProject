@@ -9,29 +9,29 @@ public class EntityListOperation implements ListOperation<Entity> {
 
     @Override
     public void deleteByMaxField(List<Entity> list) {
-        int maxValue = Integer.MIN_VALUE;
+        int[] maxValue = {Integer.MIN_VALUE};
         for (Entity entity : list) {
-            if (entity.getValue() > maxValue) {
-                maxValue = entity.getValue();
+            if (entity.getValue() > maxValue[0]) {
+                maxValue[0] = entity.getValue();
             }
         }
-        deleteByValue(list, maxValue);
+        list.removeIf(entity -> entity.getValue() == maxValue[0]);
     }
 
     @Override
     public void deleteByMinField(List<Entity> list) {
-        int minValue = Integer.MAX_VALUE;
+        int[] minValue = {Integer.MAX_VALUE};
         for (Entity entity : list) {
-            if (entity.getValue() < minValue) {
-                minValue = entity.getValue();
+            if (entity.getValue() < minValue[0]) {
+                minValue[0] = entity.getValue();
             }
         }
-        deleteByValue(list, minValue);
+        list.removeIf(entity -> entity.getValue() == minValue[0]);
     }
 
     @Override
     public void deleteByValue(List<Entity> list, int value) {
-        list.removeIf(entity -> entity.getValue() == value);
+        list.removeIf(entity -> entity.getValue() > value);
     }
 
     @Override
