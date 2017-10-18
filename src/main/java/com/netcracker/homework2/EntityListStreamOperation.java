@@ -27,10 +27,7 @@ public class EntityListStreamOperation implements ListOperation<Entity> {
 
     @Override
     public void deleteByValue(List<Entity> list, int value) {
-        List<Entity> result = list.stream()
-                .filter(entity -> entity.getValue() == value)
-                .collect(Collectors.toList());
-        list.removeAll(result);
+        list.removeIf(entity -> entity.getValue() == value);
     }
 
     @Override

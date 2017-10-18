@@ -7,24 +7,24 @@ public class EntityMapOperation implements MapOperation<String, Entity> {
 
     @Override
     public void deleteByMaxField(Map<String, Entity> map) {
-        int[] maxValue = {Integer.MIN_VALUE};
+        int maxValue = Integer.MIN_VALUE;
         for (Map.Entry<String, Entity> entity : map.entrySet()) {
-            if (entity.getValue().getValue() > maxValue[0]) {
-                maxValue[0] = entity.getValue().getValue();
+            if (entity.getValue().getValue() > maxValue) {
+                maxValue = entity.getValue().getValue();
             }
         }
-        deleteByValue(map, maxValue[0]);
+        deleteByValue(map, maxValue);
     }
 
     @Override
     public void deleteByMinField(Map<String, Entity> map) {
-        int[] minValue = {Integer.MAX_VALUE};
+        int minValue = Integer.MAX_VALUE;
         for (Map.Entry<String, Entity> entity : map.entrySet()) {
-            if (entity.getValue().getValue() < minValue[0]) {
-                minValue[0] = entity.getValue().getValue();
+            if (entity.getValue().getValue() < minValue) {
+                minValue = entity.getValue().getValue();
             }
         }
-        deleteByValue(map, minValue[0]);
+        deleteByValue(map, minValue);
     }
 
     @Override
