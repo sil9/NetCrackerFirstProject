@@ -15,7 +15,7 @@ public class EntityMapOperation implements MapOperation<String, Entity> {
                 maxValue[0] = entity.getValue().getValue();
             }
         }
-        map.entrySet().removeIf(entry -> entry.getValue().getValue() == maxValue[0]);
+        deleteByValue(map, maxValue[0]);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class EntityMapOperation implements MapOperation<String, Entity> {
                 minValue[0] = entity.getValue().getValue();
             }
         }
-        map.entrySet().removeIf(entry -> entry.getValue().getValue() == minValue[0]);
+        deleteByValue(map, minValue[0]);
     }
 
     @Override
