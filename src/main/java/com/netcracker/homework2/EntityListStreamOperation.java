@@ -1,6 +1,7 @@
 package com.netcracker.homework2;
 
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -74,6 +75,11 @@ public class EntityListStreamOperation implements ListOperation<Entity> {
 
     @Override
     public void sorted(List<Entity> list) {
-
+        List<Entity> result = list.stream()
+                .sorted(Comparator.comparing(Entity::getName))
+                .sorted(Comparator.comparing(Entity::getValue))
+                .collect(Collectors.toList());
+        list.clear();
+        list.addAll(result);
     }
 }
