@@ -31,7 +31,7 @@ public class EntityListOperation implements ListOperation<Entity> {
 
     @Override
     public void deleteByValue(List<Entity> list, int value) {
-        list.removeIf(entity -> entity.getValue() == 3);
+        list.removeIf(entity -> entity.getValue() >= 3);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class EntityListOperation implements ListOperation<Entity> {
     @Override
     public boolean findSymbolInAllItems(List<Entity> list, Character character) {
         for (Entity entity : list) {
-            if (entity.getName().indexOf(character) == -1) {
+            if (!entity.getName().contains(character.toString())) {
                 return false;
             }
         }
