@@ -1,9 +1,7 @@
 package com.netcracker.homework2;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class EntityMapOperation implements MapOperation<String, Entity> {
 
@@ -95,7 +93,14 @@ public class EntityMapOperation implements MapOperation<String, Entity> {
     }
 
     @Override
-    public void sorted(Map<String, Entity> map) {
-        //TODO: Пичалька
+    public Map<String, Entity> sorted(Map<String, Entity> map) {
+        List<Map.Entry<String, Entity>> list = new LinkedList<>(map.entrySet());
+        list.sort(Comparator.comparing(o -> o.getValue().getName()));
+        list.sort(Comparator.comparing(o -> o.getValue().getValue()));
+        Map<String, Entity> result = new LinkedHashMap<>();
+        for (Map.Entry<String, Entity> entry : list) {
+            result.put(entry.getKey(), entry.getValue());
+        }
+        return result;
     }
 }
