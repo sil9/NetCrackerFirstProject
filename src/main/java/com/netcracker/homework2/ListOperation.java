@@ -5,7 +5,9 @@ import java.util.List;
 
 public interface ListOperation<T> {
 
-    void maximumDelete(List<T> list);
+    void deleteByMaxField(List<T> list);
+
+    void deleteByMinField(List<T> list);
 
     void deleteByValue(List<T> list, int value);
 

@@ -8,19 +8,25 @@ import java.util.List;
 public class EntityListOperation implements ListOperation<Entity> {
 
     @Override
-    public void maximumDelete(List<Entity> list) {
-        List<Entity> entities = new ArrayList<>();
-        int maxValue = Integer.MIN_VALUE;
+    public void deleteByMaxField(List<Entity> list) {
+        int[] maxValue = {Integer.MIN_VALUE};
         for (Entity entity : list) {
-            if (entity.getValue() == maxValue) {
-                entities.add(entity);
-            } else if (entity.getValue() > maxValue) {
-                maxValue = entity.getValue();
-                entities.clear();
-                entities.add(entity);
+            if (entity.getValue() > maxValue[0]) {
+                maxValue[0] = entity.getValue();
             }
         }
-        list.removeAll(entities);
+        list.removeIf(entity -> entity.getValue() == maxValue[0]);
+    }
+
+    @Override
+    public void deleteByMinField(List<Entity> list) {
+        int[] minValue = {Integer.MAX_VALUE};
+        for (Entity entity : list) {
+            if (entity.getValue() < minValue[0]) {
+                minValue[0] = entity.getValue();
+            }
+        }
+        list.removeIf(entity -> entity.getValue() == minValue[0]);
     }
 
     @Override
