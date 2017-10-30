@@ -11,7 +11,7 @@ public class CourseDaoImpl implements CourseDao {
 
     private final String GET_BY_ID = "SELECT * FROM course WHERE id=?";
 
-    private final String INSERT = "INSERT INTO course (name, trainer_surname, trainer_name, trainer_patronymic, hour_count) VALUES (?,?,?,?,?)";
+    private final String INSERT = "INSERT INTO course (id, name, trainer_surname, trainer_name, trainer_patronymic, hour_count) VALUES (?,?,?,?,?,?)";
 
     private final String UPDATE = "UPDATE course SET name=?, trainer_surname=?, trainer_name=?, trainer_patronymic=?, hour_count=? WHERE id=?";
 
@@ -62,11 +62,12 @@ public class CourseDaoImpl implements CourseDao {
         try {
             try (Connection connection = ConnectionDB.getInstance().getConnection();
                  PreparedStatement preparedStatement = connection.prepareStatement(INSERT)) {
-                preparedStatement.setString(1, course.getName());
-                preparedStatement.setString(2, course.getTrainerSurname());
-                preparedStatement.setString(3, course.getTrainerName());
-                preparedStatement.setString(4, course.getTrainerPatronymic());
-                preparedStatement.setInt(5, course.getHourCount());
+                preparedStatement.setInt(1, course.getId());
+                preparedStatement.setString(2, course.getName());
+                preparedStatement.setString(3, course.getTrainerSurname());
+                preparedStatement.setString(4, course.getTrainerName());
+                preparedStatement.setString(5, course.getTrainerPatronymic());
+                preparedStatement.setInt(6, course.getHourCount());
                 preparedStatement.executeUpdate();
             }
         } catch (SQLException e) {
@@ -109,7 +110,7 @@ public class CourseDaoImpl implements CourseDao {
     private void initCourse(Course course, ResultSet resultSet) throws SQLException {
         course.setId(resultSet.getInt("id"));
         course.setName(resultSet.getString("name"));
-        course.setTrainerName(resultSet.getString("trainer_surname"));
+        course.setTrainerName(resultSet.getString("trainer_name"));
         course.setTrainerSurname(resultSet.getString("trainer_surname"));
         course.setTrainerPatronymic(resultSet.getString("trainer_patronymic"));
         course.setHourCount(resultSet.getInt("hour_count"));
